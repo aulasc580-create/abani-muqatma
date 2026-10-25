@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "id": "mixedvisuals",
+  "id": "mixedpack",
   "version": "${version}",
-  "name": "Mixed Visuals",
-  "description": "Neon violet PvP visuals.",
+  "name": "Mixed Pack",
+  "description": "12 in 1 client PvP utility pack with a neon violet menu.",
   "authors": ["Mixed"],
   "license": "MIT",
   "environment": "client",
   "entrypoints": {
-    "client": ["dev.mixedvisuals.MixedVisualsClient"]
+    "client": ["dev.mixedpack.MixedPackClient"]
   },
   "depends": {
     "fabricloader": ">=0.16.0",

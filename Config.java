@@ -1,4 +1,4 @@
-package dev.mixedvisuals;
+package dev.mixedpack;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -12,8 +12,9 @@ import java.util.Map;
 
 public final class Config {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+
     private static Path file() {
-        return FabricLoader.getInstance().getConfigDir().resolve("mixedvisuals.json");
+        return FabricLoader.getInstance().getConfigDir().resolve("mixedpack.json");
     }
 
     public static void load() {
@@ -23,6 +24,8 @@ public final class Config {
             Map<String, Boolean> map = GSON.fromJson(Files.readString(f),
                     new TypeToken<Map<String, Boolean>>() {}.getType());
             if (map == null) return;
+            Boolean mst = map.get("__master");
+            if (mst != null) Modules.master = mst;
             for (Module m : Modules.ALL) {
                 Boolean v = map.get(m.name);
                 if (v != null) {
@@ -38,6 +41,7 @@ public final class Config {
     public static void save() {
         try {
             Map<String, Boolean> map = new HashMap<>();
+            map.put("__master", Modules.master);
             for (Module m : Modules.ALL) map.put(m.name, m.enabled);
             Files.writeString(file(), GSON.toJson(map));
         } catch (Exception e) {

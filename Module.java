@@ -1,16 +1,14 @@
-package dev.mixedvisuals;
+package dev.mixedpack;
 
 public class Module {
     public final String name;
     public final String description;
-    public final Category category;
-    public boolean enabled;
-    public float anim; // 0..1 toggle animation
+    public boolean enabled = true;
+    public float anim = 1f;
 
-    public Module(String name, String description, Category category) {
+    public Module(String name, String description) {
         this.name = name;
         this.description = description;
-        this.category = category;
     }
 
     public void toggle() {
