@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "mixedvisuals",
+  "version": "${version}",
+  "name": "Mixed Visuals",
+  "description": "Neon violet PvP visuals.",
+  "authors": ["Mixed"],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["dev.mixedvisuals.MixedVisualsClient"]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.4",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
